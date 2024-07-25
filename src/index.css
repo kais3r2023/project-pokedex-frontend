@@ -1,0 +1,13 @@
+@import url(./vendor/normalize.css);
+@import url(./root/root.css);
+@import url(./blocks/main/main.css);
+@import url(./blocks/header/header.css);
+@import url(./blocks/header/_title/header_title.css);
+@import url(./blocks/search-bar/search-bar.css);
+@import url(./blocks/search-bar/_button/search-bar_button.css);
+@import url(./blocks/search-bar/_input/search-bar_input.css);
+@import url(./blocks/gallery/gallery.css);
+@import url(./blocks/card/card.css);
+@import url(./blocks/card/_pokemon-id/card_pokemon-id.css);
+@import url(./blocks/card/_pokemon-image/card_pokemon-image.css);
+@import url(./blocks/card/_pokemon-name/card_pokemon-name.css);

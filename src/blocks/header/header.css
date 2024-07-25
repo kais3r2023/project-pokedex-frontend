@@ -1,0 +1,8 @@
+.header{
+  display: grid;
+  height: 200px;
+  width: 100vh;
+  position: relative;
+  align-content: center;
+  justify-content: center;
+}

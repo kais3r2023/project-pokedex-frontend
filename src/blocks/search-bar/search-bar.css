@@ -1,0 +1,7 @@
+.search-bar{
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content:center;
+  height: 42px;
+  width: 400px;
+}
