@@ -1,7 +1,14 @@
 .card_pokemon-id{
   position: absolute;
-  top: 109px;
-  right: 6px;
-  font-size: 20px;
+  top: 53px;
+  right: 15px;
+  font-size: 30px;
+  font-weight: bold;
   z-index: 6;
+  color: whitesmoke;
+  text-shadow:
+    -1px -1px 0 black,  
+    1px -1px 0 black,
+    -1px 1px 0 black,
+    1px 1px 0 black;
 }

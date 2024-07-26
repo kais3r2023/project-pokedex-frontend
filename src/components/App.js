@@ -4,8 +4,6 @@ import * as api from "../utils/api";
 
 function App() {
   const [allPokemon, setAllPokemon] = useState([]);
-  const [pokemonStats, setPokemonStats] = useState({});
-  
 
   //Funcion para obtener Listado de Pokémon
   useEffect(() => {
@@ -13,15 +11,14 @@ function App() {
       setAllPokemon(res);
     });
   }, []);
-  
-  console.log(allPokemon)
+
+  console.log(allPokemon);
 
   //Funcion para guardar stats de Pokémon
 
-
   return (
     <div>
-      <Main />
+      <Main allPokemon={allPokemon}/>
     </div>
   );
 }

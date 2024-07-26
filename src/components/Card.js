@@ -1,12 +1,16 @@
-import React from 'react'
-import pokemonImg from '../images/lapras.svg'
+import React from "react";
+import pokemonImg from "../images/lapras.svg";
 
-export default function Card(name, image, id ) {
+export default function Card({ id, name, img }) {
   return (
-    <div className='card' key={id}>
-      <h3 className='card_pokemon-name'>Kangaskhan</h3>
-      <p className='card_pokemon-id'>#131</p>
-      <img className='card_pokemon-image' src={pokemonImg}></img>
+    <div className="card">
+      <h3 className="card_pokemon-name">{name}</h3>
+      <p className="card_pokemon-id">#{id}</p>
+      <img
+        className="card_pokemon-image"
+        src={img}
+        alt={`imagen de ${name}`}
+      ></img>
     </div>
-  )
+  );
 }
