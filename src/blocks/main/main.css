@@ -6,8 +6,8 @@
   height: 100vh;
   width: 100vh;
   background: url(/src/images/backgroundPage.png);
-  background-size: cover;
+  background-size: 300%;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center -182px;
   box-shadow: inset 0 0 100px 100px black;
 }
