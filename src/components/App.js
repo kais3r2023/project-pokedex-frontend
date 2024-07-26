@@ -23,31 +23,26 @@ function App() {
   };
 
   //Funcion de Filtrado de Pokemon
-  const handlerFilter = (term) => {
-    if (!term) {
+  const handlerFilter = () => {
+    if (!search) {
       setFilteredPokemon(allPokemon);
     } else {
-      const filtered = allPokemon.filter((pokemon) => {
-        pokemon.name.toLowerCase().includes(term.toLowerCase());
-      });
+      const filtered = allPokemon.filter((pokemon) =>
+        pokemon.name.toLowerCase().includes(search.toLowerCase())
+      );
       setFilteredPokemon(filtered);
+      
     }
   };
-
-  // Funcion de busqueda
-
-  const handlerSearch = () =>{
-    handlerFilter(search)
-    console.log(filteredPokemon)
-  }
+  console.log(filteredPokemon)
   
   return (
     <div>
       <Main
-        allPokemon={allPokemon}
-        search={search}
+        allPokemon={filteredPokemon}
+        searchTerm={search}
         onChange={handlerInputOnChange}
-        onClick={handlerSearch}
+        onClick={handlerFilter}
       />
     </div>
   );
