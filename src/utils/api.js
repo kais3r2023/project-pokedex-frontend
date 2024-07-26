@@ -13,7 +13,7 @@ export const getAllPokemon = async () => {
           id: data.id,
           name: data.name,
           image: data.sprites.other.dream_world.front_default,
-          cry: data.cries.legacy,
+          cry: `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${data.id}.ogg`,
           stats: {
             HP: data.stats[0].base_stat,
             Attack: data.stats[1].base_stat,
