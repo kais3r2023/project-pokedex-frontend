@@ -1,14 +1,15 @@
 import React from 'react'
 import SearchBar from './SearchBar'
 
-export default function Header({searchTerm, onChange, onClick}) {
+export default function Header({searchTerm, onChange, onClick, onKeyDown}) {
   return (
     <div className='header'>
-      <h1 className='header_title'>Pokédex</h1>
+      <h1 className='header_title'>POKEDEX</h1>
       <SearchBar 
       searchTerm={searchTerm}
       onChange={onChange}
-      onClick={onClick}      
+      onClick={onClick}
+      onKeyDown={onKeyDown}      
       />
     </div>
   )

@@ -16,13 +16,19 @@ function App() {
     });
   }, []);
 
-
   // Funcion atrapa value del input
   const handlerInputOnChange = (event) => {
     setSearch(event.target.value);
   };
 
-  //Funcion de Filtrado de Pokemon
+  //Funciones  de Filtrado de Pokemon
+  useEffect(() => {
+    if (search === "" ) {
+      setFilteredPokemon(allPokemon);
+    }
+  }, [search]);
+  
+
   const handlerFilter = () => {
     if (!search) {
       setFilteredPokemon(allPokemon);
@@ -31,11 +37,20 @@ function App() {
         pokemon.name.toLowerCase().includes(search.toLowerCase())
       );
       setFilteredPokemon(filtered);
-      
     }
   };
-  console.log(filteredPokemon)
+
   
+
+  //Funcion submit con tecla enter
+
+  const handlerKeyDown = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      handlerFilter();
+    }
+  };
+
   return (
     <div>
       <Main
@@ -43,6 +58,7 @@ function App() {
         searchTerm={search}
         onChange={handlerInputOnChange}
         onClick={handlerFilter}
+        onKeyDown={handlerKeyDown}
       />
     </div>
   );

@@ -2,13 +2,14 @@ import React from "react";
 import Header from "./Header";
 import Card from "./Card";
 
-export default function Main({ allPokemon, searchTerm, onChange, onClick }) {
+export default function Main({ allPokemon, searchTerm, onChange, onClick, onKeyDown }) {
   return (
     <div className="main">
       <Header 
       searchTerm={searchTerm}
       onChange={onChange}
       onClick={onClick}
+      onKeyDown={onKeyDown}
       />
       <section className="gallery">
         {allPokemon.map(
