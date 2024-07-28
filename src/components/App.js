@@ -16,6 +16,8 @@ function App() {
     });
   }, []);
 
+  console.log("Listados de pokemones",allPokemon)
+
   // Funcion atrapa value del input
   const handlerInputOnChange = (event) => {
     setSearch(event.target.value);

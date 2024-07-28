@@ -1,3 +1,5 @@
+import { type } from "@testing-library/user-event/dist/type";
+
 const URL = "https://pokeapi.co/api/v2/pokemon?limit=151";
 
 export const getAllPokemon = async () => {
@@ -21,6 +23,10 @@ export const getAllPokemon = async () => {
             SpecialAtk: data.stats[3].base_stat,
             SpecialDef: data.stats[4].base_stat,
             Speed: data.stats[5].base_stat,
+          },
+          types: {
+            type1: data.types[0] ? data.types[0].type.name : null,
+            type2: data.types[1] ? data.types[1].type.name : null,
           },
         };
       })
