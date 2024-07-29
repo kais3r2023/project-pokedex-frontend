@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Main from "./Main";
+import Welcome from "./Welcome";
 import * as api from "../utils/api";
 
 function App() {
@@ -15,8 +16,7 @@ function App() {
       setFilteredPokemon(res);
     });
   }, []);
-
-  console.log("Listados de pokemones",allPokemon)
+  console.log( "datos en App",allPokemon);
 
   // Funcion atrapa value del input
   const handlerInputOnChange = (event) => {
@@ -62,6 +62,9 @@ function App() {
         onClick={handlerFilter}
         onKeyDown={handlerKeyDown}
       />
+      {/* <Welcome>
+
+      </Welcome> */}
     </div>
   );
 }
