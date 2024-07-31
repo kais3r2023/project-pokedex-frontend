@@ -1,0 +1,11 @@
+.popup-stats_types{
+  display: grid;
+  row-gap: 15px;
+  text-transform: capitalize;
+  font-size: 1.4rem;
+  list-style-type: none;
+  color: black;
+  margin-top: 15px;
+  justify-self: center;
+  text-align: center;
+}

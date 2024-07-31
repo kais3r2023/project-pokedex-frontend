@@ -1,7 +1,10 @@
 .popup-stats_content {
-  border-radius: 25px;
-  height: 600px;
-  width: 400px;
+  display: grid;
+  height: 800px;
+  width: 600px;
   background-color: rgb(210, 0, 0);
-  border: 5px solid black;
+  border: 7px solid black;
+  z-index: 20;
+  grid-template-rows: repeat( 3, auto);
+  border-radius: 33px;
 }

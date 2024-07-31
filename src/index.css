@@ -23,4 +23,7 @@
 @import url(./blocks/popup-stats/_container-stats/_evo-chain/popup-stats_evo-chain.css);
 @import url(./blocks/popup-stats/_container-stats/_types/popup-stats_types.css);
 @import url(./blocks/popup-stats/_content/popup-stats_content.css);
+@import url(./blocks/popup-stats/_pokemon-number/popup-stats_pokemon-number.css);
+@import url(./blocks/popup-stats/_container-stats/_subtitle/popup-stats_container-stats_subtitle.css);
+@import url(./blocks/popup-stats/_container-stats/_types/_item/popup-stats_types_item.css);
 

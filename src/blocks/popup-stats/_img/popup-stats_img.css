@@ -1,0 +1,8 @@
+.popup-stats_img{
+  position: absolute;
+  justify-self: center;
+  height: 275px;
+  width: 275px;
+  top: 196px;
+  z-index: 500;
+}

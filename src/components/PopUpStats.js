@@ -1,36 +1,42 @@
 import React from "react";
+import pokemonImg from "../images/lapras.svg";
 
 export default function PopUpStats({ pokemon, onClose, isOpen }) {
   return (
     <div className={`popup-stats ${isOpen ? "popup-stats__open" : ""}`}>
       <div className="popup-stats_content">
         <h2 className="popup-stats_title">Pokemon Name</h2>
+        <h3 className="popup-stats_pokemon-number">#151</h3>
         <img
           className="popup-stats_img"
           alt="imagen pokemon"
-          src={pokemon.image}
+          src={pokemonImg}
         />
         <div className="popup-stats_container-stats">
           <ul className="popup-stats_base-stats">
-            <li>HP:</li>
-            <li>Attack:</li>
-            <li>Defense:</li>
-            <li>Sp. Atk:</li>
-            <li>Sp. Def:</li>
-            <li>Speed:</li>
-            <li>Height:</li>
-            <li>Weight:</li>
+            <h4 className="popup-stats_container-stats_subtitle">Base Stats</h4>
+            <li>Height: 100</li>
+            <li>Weight: 100</li>
+            <li>HP: 100</li>
+            <li>Attack: 100</li>
+            <li>Defense: 100</li>
+            <li>Sp. Atk: 100</li>
+            <li>Sp. Def: 100</li>
+            <li>Speed: 100</li>
+            
           </ul>
-          <ul className="popup-stats_types">
-            <li>Type1:</li>
-            <li>Type2:</li>
-          </ul>
-          <ul className="popup-stats_evo-chain">
-            <li>Base Evolution:</li>
-            <li>First Evolution:</li>
-            <li>Second Evolution:</li>
-            <li>Third Evolution</li>
-          </ul>
+          <div className="popup-stats_types">
+            <h4 className="popup-stats_container-stats_subtitle">Type</h4>
+            <div className="popup-stats_types_item">Grass</div>
+            <div className="popup-stats_types_item">Electric</div>
+          </div>
+          <div className="popup-stats_evo-chain">
+            <h4 className="popup-stats_container-stats_subtitle">Evolutions</h4>
+            <div>Pikachu</div>
+            <div>Jolteon</div>
+            <div>Charizard</div>
+            <div>Mew</div>
+          </div>
         </div>
       </div>
     </div>

@@ -1,0 +1,8 @@
+.popup-stats_base-stats {
+  text-transform: capitalize;
+  font-size: 1.4rem;
+  list-style-type: none;
+  color: black;
+  align-self: center;
+  justify-self: center;
+}
