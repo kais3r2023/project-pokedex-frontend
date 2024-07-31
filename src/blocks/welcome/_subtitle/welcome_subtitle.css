@@ -1,0 +1,11 @@
+.welcome_subtitle{
+  align-self: center;
+  justify-self: center;
+  animation: blink 0.5s infinite;
+}
+
+@keyframes blink {
+  0% { color: white; }
+  50% { color: grey; }
+  100% { color: white; }
+}

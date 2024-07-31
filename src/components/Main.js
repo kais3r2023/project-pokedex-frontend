@@ -1,8 +1,9 @@
 import React from "react";
 import Header from "./Header";
 import Card from "./Card";
+import PopUpStats from "./PopUpStats";
 
-export default function Main({ allPokemon, searchTerm, onChange, onClick, onKeyDown }) {
+export default function Main({ filteredPokemon, allPokemon, searchTerm, onChange, onClick, onKeyDown, isOpen }) {
   return (
     <div className="main">
       <Header 
@@ -12,7 +13,7 @@ export default function Main({ allPokemon, searchTerm, onChange, onClick, onKeyD
       onKeyDown={onKeyDown}
       />
       <section className="gallery">
-        {allPokemon.map(
+        {filteredPokemon.map(
           (dataCard) => (
           <Card
             id={dataCard.id}
@@ -22,6 +23,10 @@ export default function Main({ allPokemon, searchTerm, onChange, onClick, onKeyD
           />
         ))}
       </section>
+      <PopUpStats
+      pokemon={allPokemon}
+      isOpen={isOpen}
+      />
     </div>
   );
 }

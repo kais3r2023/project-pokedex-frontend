@@ -36,6 +36,8 @@ export const getAllPokemon = async () => {
         return {
           id: data.id,
           name: data.name,
+          height: data.height,
+          weight: data.weight,
           image: data.sprites.other.dream_world.front_default,
           cry: `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${data.id}.ogg`,
           stats: {

@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import Main from "./Main";
 import Welcome from "./Welcome";
 import * as api from "../utils/api";
+import { Route, Routes, useNavigate } from "react-router-dom";
 
 function App() {
   const [allPokemon, setAllPokemon] = useState([]);
   const [search, setSearch] = useState("");
   const [filteredPokemon, setFilteredPokemon] = useState([]);
   const [cardIsClicked, setCardIsClicked] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   //Funcion para obtener Listado de Pokémon
   useEffect(() => {
@@ -25,11 +27,10 @@ function App() {
 
   //Funciones  de Filtrado de Pokemon
   useEffect(() => {
-    if (search === "" ) {
+    if (search === "") {
       setFilteredPokemon(allPokemon);
     }
   }, [search]);
-  
 
   const handlerFilter = () => {
     if (!search) {
@@ -42,8 +43,6 @@ function App() {
     }
   };
 
-  
-
   //Funcion submit con tecla enter
 
   const handlerKeyDown = (event) => {
@@ -55,16 +54,24 @@ function App() {
 
   return (
     <div>
-      <Main
-        allPokemon={filteredPokemon}
-        searchTerm={search}
-        onChange={handlerInputOnChange}
-        onClick={handlerFilter}
-        onKeyDown={handlerKeyDown}
-      />
-      {/* <Welcome>
+      <Routes>
+        <Route path="/" element={<Welcome/>} />
+        <Route
+          path="/main"
+          element={
+            <Main
+              filteredPokemon={filteredPokemon}
+              searchTerm={search}
+              onChange={handlerInputOnChange}
+              onClick={handlerFilter}
+              onKeyDown={handlerKeyDown}
+              allPokemon={allPokemon}
+              isOpen={isOpen}
 
-      </Welcome> */}
+            />
+          }
+        />
+      </Routes>
     </div>
   );
 }

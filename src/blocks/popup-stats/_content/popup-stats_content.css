@@ -1,0 +1,7 @@
+.popup-stats_content {
+  border-radius: 25px;
+  height: 600px;
+  width: 400px;
+  background-color: rgb(210, 0, 0);
+  border: 5px solid black;
+}

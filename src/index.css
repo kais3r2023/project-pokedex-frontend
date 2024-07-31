@@ -11,5 +11,16 @@
 @import url(./blocks/card/_pokemon-id/card_pokemon-id.css);
 @import url(./blocks/card/_pokemon-image/card_pokemon-image.css);
 @import url(./blocks/card/_pokemon-name/card_pokemon-name.css);
-@import url(./blocks/popup-stats/popup-stats.css);
 @import url(./blocks/welcome/welcome.css);
+@import url(./blocks/welcome/_title/welcome_title.css);
+@import url(./blocks/welcome/_button/welcome_button.css);
+@import url(./blocks/welcome/_subtitle/welcome_subtitle.css);
+@import url(./blocks/popup-stats/popup-stats.css);
+@import url(./blocks/popup-stats/_img/popup-stats_img.css);
+@import url(./blocks/popup-stats/_title/popup-stats_title.css);
+@import url(./blocks/popup-stats/_container-stats/popup-stats_container-stats.css);
+@import url(./blocks/popup-stats/_container-stats/_base-stats/popup-stats_base-stats.css);
+@import url(./blocks/popup-stats/_container-stats/_evo-chain/popup-stats_evo-chain.css);
+@import url(./blocks/popup-stats/_container-stats/_types/popup-stats_types.css);
+@import url(./blocks/popup-stats/_content/popup-stats_content.css);
+
