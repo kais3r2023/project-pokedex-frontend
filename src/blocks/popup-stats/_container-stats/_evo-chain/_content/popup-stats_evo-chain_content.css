@@ -1,0 +1,5 @@
+.popup-stats_evo-chain_content{
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 30px;
+}

@@ -5,7 +5,7 @@
   font-size: 1.4rem;
   list-style-type: none;
   color: black;
-  margin-top: 15px;
   justify-self: center;
   text-align: center;
+  align-content: space-evenly;
 }

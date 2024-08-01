@@ -1,5 +1,5 @@
 .popup-stats_evo-chain{
-  display: flex;
+  display: grid;
   text-transform: capitalize;
   font-size: 1.4rem;
   list-style-type: none;
@@ -7,6 +7,6 @@
   grid-column-start: 1;
   grid-column-end: 3;
   height: 150px;
-  align-self: center;
-  justify-self: center;
+  justify-content: space-around;
+  width: 100%;
 }

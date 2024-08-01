@@ -31,11 +31,15 @@ export default function PopUpStats({ pokemon, onClose, isOpen }) {
             <div className="popup-stats_types_item">Electric</div>
           </div>
           <div className="popup-stats_evo-chain">
-            <h4 className="popup-stats_container-stats_subtitle">Evolutions</h4>
-            <div>Pikachu</div>
-            <div>Jolteon</div>
-            <div>Charizard</div>
-            <div>Mew</div>
+          <h4 className="popup-stats_container-stats_subtitle">Evolutions</h4>
+          <div className="popup-stats_evo-chain_content">
+
+          <div className="popup-stats_evo-chain_item">1: Pikachu</div>
+            <div className="popup-stats_evo-chain_item">2: Jolteon</div>
+            <div className="popup-stats_evo-chain_item">3: Charizard</div>
+            <div className="popup-stats_evo-chain_item">4: Mew</div>
+          </div>
+            
           </div>
         </div>
       </div>
