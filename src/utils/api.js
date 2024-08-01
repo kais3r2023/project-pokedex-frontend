@@ -41,12 +41,12 @@ export const getAllPokemon = async () => {
           image: data.sprites.other.dream_world.front_default,
           cry: `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${data.id}.ogg`,
           stats: {
-            HP: data.stats[0].base_stat,
-            Attack: data.stats[1].base_stat,
-            Defense: data.stats[2].base_stat,
-            SpecialAtk: data.stats[3].base_stat,
-            SpecialDef: data.stats[4].base_stat,
-            Speed: data.stats[5].base_stat,
+            hp: data.stats[0].base_stat,
+            attack: data.stats[1].base_stat,
+            defense: data.stats[2].base_stat,
+            specialAtk: data.stats[3].base_stat,
+            specialDef: data.stats[4].base_stat,
+            speed: data.stats[5].base_stat,
           },
           types: {
             type1: data.types[0] ? data.types[0].type.name : null,

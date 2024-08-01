@@ -3,29 +3,41 @@ import Header from "./Header";
 import Card from "./Card";
 import PopUpStats from "./PopUpStats";
 
-export default function Main({ filteredPokemon, allPokemon, searchTerm, onChange, onClick, onKeyDown, isOpen }) {
+export default function Main({
+  filteredPokemon,
+  searchTerm,
+  onChange,
+  onClickBtnSearch,
+  onKeyDownSubmit,
+  isOpen,
+  onCardClick,
+  pokemonSelected,
+
+  popupRef,
+}) {
   return (
     <div className="main">
-      <Header 
-      searchTerm={searchTerm}
-      onChange={onChange}
-      onClick={onClick}
-      onKeyDown={onKeyDown}
+      <Header
+        searchTerm={searchTerm}
+        onChange={onChange}
+        onClickBtnSearch={onClickBtnSearch}
+        onKeyDownSubmit={onKeyDownSubmit}
       />
       <section className="gallery">
-        {filteredPokemon.map(
-          (dataCard) => (
+        {filteredPokemon.map((dataCard) => (
           <Card
             id={dataCard.id}
             name={dataCard.name}
             img={dataCard.image}
             key={dataCard.id}
+            onCardClick={onCardClick}
           />
         ))}
       </section>
       <PopUpStats
-      pokemon={allPokemon}
-      isOpen={isOpen}
+        pokemon={pokemonSelected}
+        isOpen={isOpen}
+        popupRef={popupRef}
       />
     </div>
   );

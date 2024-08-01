@@ -1,7 +1,7 @@
 import React from "react";
 import lupaSearch from "../images/lupa.svg";
 
-export default function SearchBar({ searchTerm, onChange, onClick, onKeyDown }) {
+export default function SearchBar({ searchTerm, onChange, onClickBtnSearch, onKeyDownSubmit }) {
 
 
   return (
@@ -12,14 +12,14 @@ export default function SearchBar({ searchTerm, onChange, onClick, onKeyDown }) 
         placeholder="Search"
         value={searchTerm}
         onChange={onChange}
-        onKeyDown={onKeyDown}
+        onKeyDown={onKeyDownSubmit}
       />
       <img
         className="search-bar_button"
         src={lupaSearch}
         type="submit"
         alt="imagen de una lupa"
-        onClick={onClick}
+        onClick={onClickBtnSearch}
       />
     </div>
   );

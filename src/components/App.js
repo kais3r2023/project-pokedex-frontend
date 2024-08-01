@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Main from "./Main";
 import Welcome from "./Welcome";
 import * as api from "../utils/api";
@@ -9,7 +9,8 @@ function App() {
   const [search, setSearch] = useState("");
   const [filteredPokemon, setFilteredPokemon] = useState([]);
   const [cardIsClicked, setCardIsClicked] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+  const [selectedPokemon, setSelectedPokemon] = useState(null);
+  const popupRef = useRef(null);
 
   //Funcion para obtener Listado de Pokémon
   useEffect(() => {
@@ -18,9 +19,8 @@ function App() {
       setFilteredPokemon(res);
     });
   }, []);
-  console.log( "datos en App",allPokemon);
 
-  // Funcion atrapa value del input
+  // Funcion atrapa value del input searchBar
   const handlerInputOnChange = (event) => {
     setSearch(event.target.value);
   };
@@ -43,9 +43,44 @@ function App() {
     }
   };
 
-  //Funcion submit con tecla enter
+  //Funcion Click Tarjeta
 
-  const handlerKeyDown = (event) => {
+  function handlerCardOnClick(pokemonId) {
+    const pokemonSelected = allPokemon.find((p) => p.id === pokemonId);
+    setSelectedPokemon(pokemonSelected);
+    setCardIsClicked(true);
+  }
+
+  //Funcion para cerrar PopupStats
+  useEffect(() => {
+    const handlerClickOutside = (event) => {
+      if (popupRef.current && !popupRef.current.contains(event.target)) {
+        setCardIsClicked(false);
+      }
+    };
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape" || event.keyCode === 27) {
+        setCardIsClicked(false);
+      }
+    };
+
+    if (cardIsClicked) {
+      document.addEventListener("mousedown", handlerClickOutside);
+      document.addEventListener("keydown", handleKeyDown);
+    } else {
+      document.removeEventListener("mousedown", handlerClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handlerClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [cardIsClicked]);
+
+  //Funcion submit  SearchBar con tecla enter
+
+  const handlerKeyDownSubmit = (event) => {
     if (event.key === "Enter") {
       event.preventDefault();
       handlerFilter();
@@ -55,7 +90,7 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Welcome/>} />
+        <Route path="/" element={<Welcome />} />
         <Route
           path="/main"
           element={
@@ -63,11 +98,12 @@ function App() {
               filteredPokemon={filteredPokemon}
               searchTerm={search}
               onChange={handlerInputOnChange}
-              onClick={handlerFilter}
-              onKeyDown={handlerKeyDown}
-              allPokemon={allPokemon}
-              isOpen={isOpen}
-
+              onClickBtnSearch={handlerFilter}
+              onKeyDownSubmit={handlerKeyDownSubmit}
+              isOpen={cardIsClicked}
+              onCardClick={handlerCardOnClick}
+              pokemonSelected={selectedPokemon}
+              popupRef={popupRef}
             />
           }
         />

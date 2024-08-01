@@ -5,4 +5,5 @@
   font-size: 3rem;
   justify-self: flex-end;
   margin-right: 15%;
+  z-index: 101;
 }
