@@ -1,70 +1,179 @@
-# Getting Started with Create React App
+Aplicación Pokedex
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Esta es una aplicación de Pokedex construida con React que permite a los usuarios buscar y ver detalles sobre diferentes Pokémon. La aplicación obtiene datos de una API, proporciona funcionalidad de búsqueda y muestra información detallada en una ventana emergente cuando se hace clic en una tarjeta de Pokémon.
+Características
 
-## Available Scripts
+    Listar todos los Pokémon: Muestra una lista de todos los Pokémon obtenidos de una API.
+    Funcionalidad de búsqueda: Permite a los usuarios buscar Pokémon por nombre.
+    Filtrar Pokémon: Filtra la lista de Pokémon según la entrada de búsqueda.
+    Ver detalles del Pokémon: Muestra información detallada sobre un Pokémon en una ventana emergente cuando se hace clic en una tarjeta.
+    Reproducir el sonido del Pokémon: Reproduce el sonido del Pokémon cuando se hace clic en su tarjeta.
+    Cerrar ventana emergente con la tecla Escape o clic fuera: Permite a los usuarios cerrar la ventana emergente presionando la tecla Escape o haciendo clic fuera de la ventana.
 
-In the project directory, you can run:
+Tecnologías Utilizadas
 
-### `npm start`
+    React: Una biblioteca de JavaScript para construir interfaces de usuario.
+    React Router: Una biblioteca para enrutamiento en aplicaciones React.
+    JavaScript (ES6+): El lenguaje de programación utilizado para construir la aplicación.
+    CSS: Para el estilo de la aplicación.
+    HTML: Para estructurar la aplicación.
+    PokeAPI: Una API utilizada para obtener datos de Pokémon.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Descripción del Código
+App.js
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+El componente principal de la aplicación que configura las rutas y gestiona el estado de la aplicación.
+Variables de Estado
 
-### `npm test`
+    allPokemon: Almacena la lista de todos los Pokémon obtenidos de la API.
+    search: Almacena el valor actual de entrada de búsqueda.
+    filteredPokemon: Almacena la lista de Pokémon filtrados según la entrada de búsqueda.
+    cardIsClicked: Booleano para gestionar la visibilidad de la ventana emergente de detalles del Pokémon.
+    selectedPokemon: Almacena los detalles del Pokémon seleccionado actualmente.
+    popupRef: Una referencia al elemento emergente para detectar clics fuera de él.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Funciones
 
-### `npm run build`
+    Obtener Datos de Pokémon
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    javascript
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+useEffect(() => {
+  api.getAllPokemon().then((res) => {
+    setAllPokemon(res);
+    setFilteredPokemon(res);
+  });
+}, []);
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Manejar Cambio en Entrada de Búsqueda
 
-### `npm run eject`
+javascript
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+const handlerInputOnChange = (event) => {
+  setSearch(event.target.value);
+};
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Filtrar Pokémon
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+javascript
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+useEffect(() => {
+  if (search === "") {
+    setFilteredPokemon(allPokemon);
+  }
+}, [search]);
 
-## Learn More
+const handlerFilter = () => {
+  if (!search) {
+    setFilteredPokemon(allPokemon);
+  } else {
+    const filtered = allPokemon.filter((pokemon) =>
+      pokemon.name.toLowerCase().includes(search.toLowerCase())
+    );
+    setFilteredPokemon(filtered);
+  }
+};
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Manejar Clic en Tarjeta
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+javascript
 
-### Code Splitting
+function handlerCardOnClick(pokemonId, cry) {
+  const audio = new Audio(cry);
+  audio.volume = 0.1;
+  audio.play();
+  const pokemonSelected = allPokemon.find((p) => p.id === pokemonId);
+  setSelectedPokemon(pokemonSelected);
+  setCardIsClicked(true);
+}
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Cerrar Ventana Emergente
 
-### Analyzing the Bundle Size
+javascript
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+useEffect(() => {
+  const handlerClickOutside = (event) => {
+    if (popupRef.current && !popupRef.current.contains(event.target)) {
+      setCardIsClicked(false);
+    }
+  };
 
-### Making a Progressive Web App
+  const handleKeyDown = (event) => {
+    if (event.key === "Escape" || event.keyCode === 27) {
+      setCardIsClicked(false);
+    }
+  };
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+  if (cardIsClicked) {
+    document.addEventListener("mousedown", handlerClickOutside);
+    document.addEventListener("keydown", handleKeyDown);
+  } else {
+    document.removeEventListener("mousedown", handlerClickOutside);
+    document.removeEventListener("keydown", handleKeyDown);
+  }
+  return () => {
+    document.removeEventListener("mousedown", handlerClickOutside);
+    document.removeEventListener("keydown", handleKeyDown);
+  };
+}, [cardIsClicked]);
 
-### Advanced Configuration
+Enviar Búsqueda con Tecla Enter
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+javascript
 
-### Deployment
+    const handlerKeyDownSubmit = (event) => {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        handlerFilter();
+      }
+    };
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Uso
 
-### `npm run build` fails to minify
+Para ejecutar esta aplicación localmente, sigue estos pasos:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    Clona el repositorio:
+
+    sh
+
+git clone <URL_DEL_REPOSITORIO>
+
+Navega al directorio del proyecto:
+
+sh
+
+cd nombre-del-proyecto
+
+Instala las dependencias:
+
+sh
+
+npm install
+
+Ejecuta la aplicación:
+
+sh
+
+    npm start
+
+Esto lanzará la aplicación en modo de desarrollo y estará disponible en http://localhost:3000.
+Estructura del Proyecto
+
+plaintext
+
+.
+├── public
+│   └── index.html
+├── src
+│   ├── components
+│   │   ├── Main.js
+│   │   ├── Welcome.js
+│   │   ├── Card.js
+│   │   ├── SearchBar.js
+│   │   └── PopUpStats.js
+│   ├── utils
+│   │   └── api.js
+│   ├── App.js
+│   ├── index.css
+│   └── index.js
+└── package.json
