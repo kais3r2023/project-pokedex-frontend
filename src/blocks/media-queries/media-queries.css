@@ -1,0 +1,112 @@
+@media screen and (max-width: 999px) {
+  .header {
+    width: 60vh;
+  }
+
+  .header_title{
+    margin-right: 88px;
+  }
+  .gallery {
+    grid-template-columns: repeat(2, auto);
+  }
+  .popup-stats_content{
+    width: 400px;
+    height: 500px;
+  }
+  .popup-stats_container-stats{
+    width: 400px;
+    grid-template-columns: 200px 200px;
+  }
+  .popup-stats_img{
+    width: 150px;
+    height: 150px;
+  }
+  .popup-stats_container-stats_subtitle{
+    width: 150px;
+    justify-self: center;
+  }
+  .popup-stats_evo-chain_item{
+    width: 150px;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .main{
+    width: 500px;
+  }
+  .header{
+    margin-top: 20px;
+    width: 400px;
+    grid-template-rows: auto;
+    grid-template-columns: auto;
+  }
+  .header_home{
+    width: 50px;
+    height: 50px;
+  }
+  .header_title{
+    margin-right: 50px;
+    grid-row-start: 1;
+  }
+  .search-bar{
+    grid-row-start: 2;
+    grid-row-end: 2;
+  }
+
+  .gallery {
+    grid-template-columns: auto;
+    width: 400px;
+    align-self: auto;
+  }
+  .popup-stats{
+    top: -58px;
+  }
+}
+
+@media screen and (max-width: 550px ) {
+  .main{
+    width: 300px;
+  }
+  .search-bar{
+    width: 250px;
+  }
+  .search-bar_input{
+    width: 150px;
+  }
+  .popup-stats_content{
+    width: 300px;
+    height: 400px;
+  }
+  .popup-stats_container-stats{
+    width: 300px;
+  }
+  .popup-stats_img{
+    top: 81px;
+    width: 130px;
+    height: 130px;
+  }
+  
+  .popup-stats_container-stats{
+    justify-content: space-evenly;
+    grid-template-columns: 100px 100px;
+  }
+  .popup-stats_types_item{
+    width: 80px;
+    font-size: 1rem;
+    justify-self: center;
+  }
+  .popup-stats_evo-chain_item{
+    width: 100px;
+    font-size: 0.9rem;
+  }
+  .popup-stats_types{
+    width: 75PX;
+  }
+  .popup-stats_container-stats_subtitle{
+    width: 120px;
+  }  
+  .popup-stats_pokemon-number {
+    margin-right: 8%;
+  }
+}

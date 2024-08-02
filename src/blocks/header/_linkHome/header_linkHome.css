@@ -1,0 +1,11 @@
+.header_linkHome{
+  display: grid;
+  justify-self: center;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  text-align: center;
+  align-content: center;
+}

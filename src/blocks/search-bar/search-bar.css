@@ -1,6 +1,9 @@
 .search-bar{
+  grid-column-start: 2;
+  grid-column-end: 4;
   display: grid;
   grid-template-columns: auto auto;
+  align-self: center;
   justify-content:center;
   height: 42px;
   width: 400px;

@@ -1,6 +1,6 @@
 .gallery{
   display: grid;
-  width: 80vh;
+  width: 90vh;
   margin-top: 40px;
   grid-template-columns: repeat(3, auto);
   justify-content: center;

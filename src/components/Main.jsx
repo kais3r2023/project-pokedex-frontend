@@ -12,7 +12,6 @@ export default function Main({
   isOpen,
   onCardClick,
   pokemonSelected,
-
   popupRef,
 }) {
   return (
@@ -31,6 +30,7 @@ export default function Main({
             img={dataCard.image}
             key={dataCard.id}
             onCardClick={onCardClick}
+            cry={dataCard.cry}
           />
         ))}
       </section>

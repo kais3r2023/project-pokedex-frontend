@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import Main from "./Main";
 import Welcome from "./Welcome";
 import * as api from "../utils/api";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   const [allPokemon, setAllPokemon] = useState([]);
@@ -45,7 +45,10 @@ function App() {
 
   //Funcion Click Tarjeta
 
-  function handlerCardOnClick(pokemonId) {
+  function handlerCardOnClick(pokemonId, cry) {
+    const audio = new Audio(cry);
+    audio.volume = 0.1;
+    audio.play();
     const pokemonSelected = allPokemon.find((p) => p.id === pokemonId);
     setSelectedPokemon(pokemonSelected);
     setCardIsClicked(true);
@@ -104,6 +107,7 @@ function App() {
               onCardClick={handlerCardOnClick}
               pokemonSelected={selectedPokemon}
               popupRef={popupRef}
+
             />
           }
         />
