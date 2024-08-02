@@ -12,6 +12,7 @@
   .popup-stats_content{
     width: 400px;
     height: 500px;
+    top: -43px;
   }
   .popup-stats_container-stats{
     width: 400px;
@@ -20,6 +21,7 @@
   .popup-stats_img{
     width: 150px;
     height: 150px;
+    top: 77px;
   }
   .popup-stats_container-stats_subtitle{
     width: 150px;
@@ -105,6 +107,7 @@
   }
   .popup-stats_container-stats_subtitle{
     width: 120px;
+    font-size: 1.1rem;
   }  
   .popup-stats_pokemon-number {
     margin-right: 8%;
